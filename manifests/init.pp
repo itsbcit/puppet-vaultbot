@@ -14,6 +14,14 @@ class vaultbot (
     mode   => '0555',
   }
 
+  file { '/etc/logrotate.d/vaultbot':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0444',
+    source => 'puppet:///modules/vaultbot/logrotate-vaultbot',
+  }
+
   $base_url = "https://gitlab.com/msvechla/vaultbot/-/jobs/artifacts/v${version}/download?job=build"
   $filename = "vaultbot-v${version}.zip"
 
