@@ -18,14 +18,14 @@ class vaultbot (
   $filename = "vaultbot-${version}.zip"
 
   exec { "Download ${filename}":
-    cmd      => "curl -sL ${base_url} -o /opt/vaultbot/${filename}",
+    command  => "curl -sL ${base_url} -o /opt/vaultbot/${filename}",
     creates  => "/opt/vaultbot/${filename}",
     notify   => Exec["Unpack ${filename}"],
     requires => File['/opt/vaultbot'],
   }
 
   exec { "Unpack ${filename}":
-    cmd         => "unzip ${filename}",
+    command     => "unzip ${filename}",
     refreshonly => true,
     cwd         => '/opt/vaultbot',
   }
