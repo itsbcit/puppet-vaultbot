@@ -18,10 +18,10 @@ class vaultbot (
   $filename = "vaultbot-${version}.zip"
 
   exec { "Download ${filename}":
-    command  => "curl -sL ${base_url} -o /opt/vaultbot/${filename}",
-    creates  => "/opt/vaultbot/${filename}",
-    notify   => Exec["Unpack ${filename}"],
-    requires => File['/opt/vaultbot'],
+    command => "curl -sL ${base_url} -o /opt/vaultbot/${filename}",
+    creates => "/opt/vaultbot/${filename}",
+    notify  => Exec["Unpack ${filename}"],
+    require => File['/opt/vaultbot'],
   }
 
   exec { "Unpack ${filename}":
