@@ -1,0 +1,7 @@
+/var/log/vaultbot {
+    daily
+    rotate 7
+    compress
+    notifempty
+    missingok
+}
