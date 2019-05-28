@@ -15,7 +15,7 @@ class vaultbot (
   }
 
   $base_url = "https://gitlab.com/msvechla/vaultbot/-/jobs/artifacts/v${version}/download?job=build"
-  $filename = "vaultbot-${version}.zip"
+  $filename = "vaultbot-v${version}.zip"
 
   exec { "Download ${filename}":
     command => "curl -sL ${base_url} -o /opt/vaultbot/${filename}",
