@@ -1,2 +1,11 @@
 ---
 vaultbot::version: '1.8.0'
+vaultbot::app_role_role_id:
+vaultbot::app_role_secret_id:
+vaultbot::pki_mount: pki
+vaultbot::pki_role_name: vaultbot
+vaultbot::pki_common_name: "%{::fqdn}"
+vaultbot::pki_cert_path: "/etc/pki/tls/certs/vaultbot-%{::fqdn}.crt"
+vaultbot::pki_cachain_path: "/etc/pki/tls/certs/vaultbot-ca.crt"
+vaultbot::pki_privkey_path: "/etc/pki/tls/private/vaultbot-%{::fqdn}.key"
+vaultbot::pki_pembundle_path: "/etc/pki/tls/private/vaultbot-%{::fqdn}.pem"

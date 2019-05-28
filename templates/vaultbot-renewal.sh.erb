@@ -1,0 +1,22 @@
+#!/bin/bash
+
+LOGFILE=/var/log/vaultbot
+VAULT_ADDR=<%= vault_addr %>
+VAULT_AUTH_METHOD=approle
+VAULT_APP_ROLE_ROLE_ID=<%= app_role_role_id %>
+VAULT_APP_ROLE_SECRET_ID=<%= app_role_secret_id %>
+PKI_MOUNT=<%= pki_mount %>
+PKI_ROLE_NAME=<%= pki_role_name %>
+PKI_COMMON_NAME=<%= pki_common_name %>
+PKI_CERT_PATH=<%= pki_cert_path %>
+PKI_CACHAIN_PATH=<%= pki_cachain_path %>
+PKI_PRIVKEY_PATH=<%= pki_privkey_path %>
+PKI_PEMBUNDLE_PATH=<%= pki_pembundle_path %>
+
+export LOGFILE
+export VAULT_ADDR VAULT_AUTH_METHOD
+export VAULT_APP_ROLE_ROLE_ID VAULT_APP_ROLE_SECRET_ID
+export PKI_MOUNT PKI_ROLE_NAME PKI_COMMON_NAME
+export PKI_CERT_PATH PKI_CACHAIN_PATH PKI_PRIVKEY_PATH PKI_PEMBUNDLE_PATH
+
+/opt/vaultbot/vaultbot-linux-amd64

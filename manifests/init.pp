@@ -6,6 +6,16 @@
 #   include vaultbot
 class vaultbot (
   $version,
+  $vault_addr,
+  $app_role_role_id,
+  $app_role_secret_id,
+  $pki_mount,
+  $pki_role_name,
+  $pki_common_name,
+  $pki_cert_path,
+  $pki_cachain_path,
+  $pki_privkey_path,
+  $pki_pembundle_path,
 ){
   file { '/opt/vaultbot':
     ensure => directory,
@@ -20,6 +30,14 @@ class vaultbot (
     group  => 'root',
     mode   => '0444',
     source => 'puppet:///modules/vaultbot/logrotate-vaultbot',
+  }
+
+  file { '/etc/cron.hourly/vaultbot-renewal.sh':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0555',
+    content => template('vaultbot/vaultbot-renewal.sh.erb'),
   }
 
   $base_url = "https://gitlab.com/msvechla/vaultbot/-/jobs/artifacts/v${version}/download?job=build"
