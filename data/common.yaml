@@ -1,5 +1,6 @@
 ---
 vaultbot::version: '1.8.0'
+vaultbot::vault_addr: "vault.%{::domain}"
 vaultbot::app_role_role_id:
 vaultbot::app_role_secret_id:
 vaultbot::pki_mount: pki
