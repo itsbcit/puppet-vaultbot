@@ -35,6 +35,6 @@ class vaultbot (
     owner  => 'root',
     group  => 'root',
     mode   => '0444',
-    source => 'modules/vaultbot/vaultbot.sh',
+    source => 'puppet:///modules/vaultbot/vaultbot.sh',
   }
 }
