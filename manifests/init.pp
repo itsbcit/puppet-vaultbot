@@ -16,6 +16,7 @@ class vaultbot (
   $pki_cachain_path,
   $pki_privkey_path,
   $pki_pembundle_path,
+  $renew_hook,
 ){
   file { '/opt/vaultbot':
     ensure => directory,

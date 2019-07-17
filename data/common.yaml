@@ -10,3 +10,4 @@ vaultbot::pki_cert_path: "/etc/pki/tls/certs/vaultbot-%{::fqdn}.crt"
 vaultbot::pki_cachain_path: "/etc/pki/tls/certs/vaultbot-ca.crt"
 vaultbot::pki_privkey_path: "/etc/pki/tls/private/vaultbot-%{::fqdn}.key"
 vaultbot::pki_pembundle_path: "/etc/pki/tls/private/vaultbot-%{::fqdn}.pem"
+vaultbot::renew_hook: /bin/true
